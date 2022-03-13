@@ -1,0 +1,93 @@
+<div class="container">
+
+    <div class="haut">
+
+        <div class="ecran">
+            <img src="./../../../assets/ordinateur.png" alt="ordi">
+        </div>
+
+        <div class="affichage">
+            <div *ngIf="page===1 &&!refus">
+                <p>nombre de joueurs :</p>
+                <input type="number" name="nbJoueurs" min="1" max="4" [(ngModel)]="nbJoueurs">
+            </div>
+
+            <div *ngIf="page===2 &&!refus">
+                <p>nom d'equipe :</p>
+                <input type="text" name="nom" [(ngModel)]="nom" autocomplete="off">
+            </div>
+
+
+            <div *ngIf="page==3 && !refus">
+                <p>prénom joueur1 : </p>
+                <input type="text" name="nom1" required [(ngModel)]="nom1" autocomplete="off">
+            </div>
+
+            <div *ngIf="page==4 && !refus">
+                <p>prénom + nom joueur2 : </p>
+                <input type="text" name="nom2" required [(ngModel)]="nom2" autocomplete="off">
+            </div>
+
+            <div *ngIf="page==5 && !refus">
+                <p>prénom joueur3 : </p>
+                <input type="text" name="nom3" required [(ngModel)]="nom3" autocomplete="off">
+            </div>
+
+            <div *ngIf="page==6 && !refus">
+                <p>prénom joueur4 : </p>
+                <input type="text" name="nom4" required [(ngModel)]="nom4" autocomplete="off">
+            </div>
+
+            <div *ngIf="page==7 && !refus">
+                <button (click)="valider()">valider l'inscription</button>
+            </div>
+
+            <div *ngIf="refus">
+                <div>désolé, ce nom est déjà pris par une autre équipe.</div>
+
+            </div>
+
+        </div>
+        <!--affichage-->
+
+    </div>
+    <!--haut-->
+    <div class="bas">
+
+        <div class="azerty">
+
+            <div (click)="tape('a')" class="lettre">a</div>
+            <div (click)="tape('z')" class="lettre">z</div>
+            <div (click)="tape('e')" class="lettre">e </div>
+            <div (click)="tape('r')" class="lettre">r</div>
+            <div (click)="tape('t')" class="lettre">t</div>
+            <div (click)="tape('y')" class="lettre">y</div>
+            <div (click)="tape('u')" class="lettre">u</div>
+            <div (click)="tape('i')" class="lettre">i </div>
+            <div (click)="tape('o')" class="lettre">o</div>
+            <div (click)="tape('p')" class="lettre">p</div>
+            <div (click)="tape('q')" class="lettre">q</div>
+            <div (click)="tape('s')" class="lettre">s</div>
+            <div (click)="tape('d')" class="lettre">d</div>
+            <div (click)="tape('f')" class="lettre">f </div>
+            <div (click)="tape('g')" class="lettre">g </div>
+            <div (click)="tape('h')" class="lettre">h </div>
+            <div (click)="tape('j')" class="lettre">j </div>
+            <div (click)="tape('k')" class="lettre">k</div>
+            <div (click)="tape('l')" class="lettre">l</div>
+            <div (click)="tape('m')" class="lettre">m</div>
+            <div (click)="tape('w')" class="lettre">w</div>
+            <div (click)="tape('x')" class="lettre">x</div>
+            <div (click)="tape('c')" class="lettre">c</div>
+            <div (click)="tape('v')" class="lettre">v</div>
+            <div (click)="tape('b')" class="lettre">b</div>
+            <div (click)="tape('n')" class="lettre">n</div>
+            <div class="lettre" (click)="suivant(-1)"><img src="./../../../assets/precedent.png" alt="fleche"></div>
+            <div class="lettre"  (click)="suivant(1)"><img src="./../../../assets/suivant.png" alt="fleche"> </div>
+            <div class="lettre" (click)="delete()">del</div>
+        </div>
+        <!--azerty-->
+    </div>
+    <!--bas-->
+</div>
+<!--container-->

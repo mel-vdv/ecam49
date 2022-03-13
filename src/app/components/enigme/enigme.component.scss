@@ -1,0 +1,85 @@
+@font-face {
+    font-family: 'Concert One';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/concertone/v16/VEM1Ro9xs5PjtzCu-srDqSTijP4.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: "time";
+    src: url(./../../../assets/Technology.ttf) format("truetype");
+  }
+  // TAILLES des parties :
+  .saisie{
+height: 20vh;
+  }
+  .clavier{
+      height: 22vh;
+  }
+//--------   images de fond --------------
+.saisie img{
+   height: 20vh;
+   //width: 43vh;
+   width: 100vw;
+   //height: 46vw;
+   z-index: 1;
+}
+.clavier div:nth-child(1) img {
+    z-index: 1;
+    width: 100vw;
+    height: 22vh;
+}
+
+//-------------- SAISIE ----------------------------
+    .saisie div:nth-child(2){
+      //  border: 1px red solid;
+        z-index: 2;
+        color: black;
+        font-family: "time";
+        font-size: 6vh;
+        //width: 80vw;height: 13vw;top: -22vw;left: 13vw;
+        height: 6vh;width:75vw; top:-11vh; left: 13vw;
+        position: relative;
+        
+        
+    }
+//---------------  CLAVIER ---------------------------
+.touches{
+    width: 100vw;
+    height: 22vh;
+    display: grid;
+    grid-template-rows: repeat(2,1fr);
+    grid-template-columns: repeat(6,1fr);
+     position: relative; top: -22vh;
+      z-index: 3;
+      padding: 2px;
+}
+.touches div {
+   
+    font-family:'Concert One';
+    display: flex;
+    font-size: 5vh;
+    color: rgba(14, 14, 14, 0.479); 
+    text-shadow: 0 0 1px black;
+   background-image: url(./../../../assets/metal-fond.png);
+   background-size: cover;
+    border-radius: 100%;
+  border: 1px black solid;
+  box-sizing: border-box;
+  box-shadow: 2px 0.5px 8px black;
+    height: 15vw; width: 15vw;
+    justify-content: center;align-items: center;
+    transition: border 1.3s  box-shadow 1.3s color 1.3s text-shadow 1.3s;
+}
+.touches>div:active{
+ color:green;
+ text-shadow:0 0 1px greenyellow,0 0 5px greenyellow;
+ border: 2px green solid;
+ box-shadow: 0 0 1px greenyellow,0 0 5px greenyellow;
+}
+.touches>div:nth-last-child(2):active{
+    color:red;
+    text-shadow:0 0 1px rgb(255,38, 0),0 0 5px rgb(255,38,0);
+    border: 2px red solid;
+    box-shadow: 0 0 1px rgb(255,38,0),0 0 5px rgb(255,38,0);
+   }

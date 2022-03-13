@@ -1,0 +1,96 @@
+
+.container{
+    width:100vw;height: 100vh;
+    display: flex; justify-content: center;align-items: center;flex-direction: column;
+    position: relative; z-index: 3;
+    top:0px;left:0px;
+    background: linear-gradient(rgb(56, 54, 54), rgb(92, 85, 85));
+
+}
+.haut{
+font-family: 'Press Start 2P';
+color: white; 
+font-size: 6vw;
+height: 85vw;
+}
+.bas{
+height:50vw;
+width: 100vw;
+}
+
+input, input:active, button{
+    background-color: rgba(0,0,0,0);
+}
+input{
+    color:white;
+    font-family: 'Press Start 2P';
+    display: block;
+    height: 15vw;
+    font-size: 10vw;
+    margin-inline: auto;
+}
+span{
+    text-align: center;
+    line-height: 1.3em;
+}
+
+input[type="number"]{
+    width: 15vw; font-size: 10vw;
+    text-align: center;
+}
+input[type="text"]{
+    width : 90%; font-size: 7vw;
+}
+.ecran{
+    width:100vw; height: 81vw;
+}
+.ecran img{
+width:100%; height:auto;;
+}
+.affichage{
+position: relative;
+top: -70vw; left: 15vw;
+height:55vw; width: 70vw;
+display: flex;
+flex-direction: column;justify-content: center;align-items: center;
+}
+////////////////////////////////////////////////////////////////
+.lettre{
+    height: 10vw;width: 10vw;
+    background-image: url(./../../../assets/touche.png);
+    background-size: contain; background-repeat: no-repeat;
+ font-weight: bold;
+ display: flex;align-items: center;justify-content: center;
+ transition: transform  ;
+}
+.lettre:active{
+   transform: scale(0.8);
+   
+}
+img[alt='fleche']{
+    width :auto;height: 5vw;
+}
+.azerty{
+    display: grid;
+    grid-template-columns: repeat(10,1fr);
+    grid-template-rows: repeat(5,1fr);
+}
+.enter{
+    text-align: center;
+    width: 30vw;
+    grid-column: 8/11;
+background-image: url(./../../../assets/enter.png);
+
+}
+.espace{
+    text-align: center;
+    background-image: url(./../../../assets/espace.png);
+    width: 60vw;
+    grid-column: 3/9;
+}
+.delete{
+    text-align: center;
+    width: 20vw;
+    grid-column: 9/11;
+background-image: url(./../../../assets/delete.png);
+}

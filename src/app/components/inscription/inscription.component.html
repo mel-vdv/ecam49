@@ -1,0 +1,111 @@
+<div class="container">
+
+    <div class="haut">
+
+        <div class="ecran">
+            <img src="./../../../assets/ordinateur.png" alt="ordi">
+        </div>
+
+        <div class="affichage">
+            <div *ngIf="!inscri">
+            <div class="page" *ngIf="page===1" >
+                <span *ngIf="message==''" >Nombre de participants :</span>
+                <input *ngIf="message==''" type="number" name="nbJoueurs" min="1" max="4" [(ngModel)]="nbJoueurs">
+                <span *ngIf="message!==''">{{message}}</span>
+            </div>
+
+            <div class="page" *ngIf="page===2">
+                <span>Nom d'equipe :</span> <br> <br>
+                <input type="text" name="nom" [(ngModel)]="nom" autocomplete="off">
+            </div>
+
+
+            <div class="page" *ngIf="page==3">
+                <span>Nom du</span><span>Joueur 1 :</span><br> <br>
+                <input type="text" name="nom1" required [(ngModel)]="nom1" autocomplete="off">
+            </div>
+
+            <div class="page" *ngIf="page==4">
+                <p>Nom du joueur2 : </p> <br> <br>
+                <input type="text" name="nom2" required [(ngModel)]="nom2" autocomplete="off">
+            </div>
+
+            <div class="page" *ngIf="page==5">
+                <p>Nom du joueur3 : </p> <br> <br>
+                <input type="text" name="nom3" required [(ngModel)]="nom3" autocomplete="off">
+            </div>
+
+            <div class="page" *ngIf="page==6">
+                <p>Nom du joueur4 : </p> <br> <br>
+                <input type="text" name="nom4" required [(ngModel)]="nom4" autocomplete="off">
+            </div>
+
+            <div class="page" *ngIf="page==7">
+                <div *ngIf="!refus">Cliquez sur Enter pour valider l'inscription</div>  
+                <div *ngIf="refus">Désolé, ce nom est déjà pris par une autre équipe.</div>
+
+            </div>
+        </div><!-- inscri-->
+        <div *ngIf="inscri">
+            Bienvenue {{nom}}, cliquez sur 'Enter' pour jouer.
+        </div>
+    </div>
+        <!--affichage-->
+
+    </div>
+    <!--haut-->
+    <div class="bas">
+
+        <div class="azerty">
+           <div class="lettre" (click)="touch(1)">1</div>
+           <div class="lettre" (click)="touch(2)">2</div>
+           <div class="lettre" (click)="touch(3)">3</div>
+           <div class="lettre" (click)="touch(4)">4</div>
+           <div class="lettre" (click)="touch(5)">5</div>
+           <div class="lettre" (click)="touch(6)">6</div>
+           <div class="lettre" (click)="touch(7)">7</div>
+           <div class="lettre" (click)="touch(8)">8</div>
+           <div class="lettre" (click)="touch(9)">9</div>
+           <div class="lettre" (click)="touch(0)">0</div>
+
+            <div (click)="tape('a')" class="lettre">a</div>
+            <div (click)="tape('z')" class="lettre">z</div>
+            <div (click)="tape('e')" class="lettre">e </div>
+            <div (click)="tape('r')" class="lettre">r</div>
+            <div (click)="tape('t')" class="lettre">t</div>
+            <div (click)="tape('y')" class="lettre">y</div>
+            <div (click)="tape('u')" class="lettre">u</div>
+            <div (click)="tape('i')" class="lettre">i </div>
+            <div (click)="tape('o')" class="lettre">o</div>
+            <div (click)="tape('p')" class="lettre">p</div>
+            <div (click)="tape('q')" class="lettre">q</div>
+            <div (click)="tape('s')" class="lettre">s</div>
+            <div (click)="tape('d')" class="lettre">d</div>
+            <div (click)="tape('f')" class="lettre">f </div>
+            <div (click)="tape('g')" class="lettre">g </div>
+            <div (click)="tape('h')" class="lettre">h </div>
+            <div (click)="tape('j')" class="lettre">j </div>
+            <div (click)="tape('k')" class="lettre">k</div>
+            <div (click)="tape('l')" class="lettre">l</div>
+            <div (click)="tape('m')" class="lettre">m</div>
+            <div></div>
+           
+            <div (click)="tape('w')" class="lettre">w</div>
+            <div (click)="tape('x')" class="lettre">x</div>
+            <div (click)="tape('c')" class="lettre">c</div>
+            <div (click)="tape('v')" class="lettre">v</div>
+            <div (click)="tape('b')" class="lettre">b</div>
+            <div (click)="tape('n')" class="lettre">n</div>
+            <div (click)="enter()" class="lettre enter">Enter</div>
+            
+
+            <div class="lettre" (click)="suivant(-1)"><img src="./../../../assets/precedent.png" alt="fleche"></div>
+            <div class="lettre"  (click)="suivant(1)"><img src="./../../../assets/suivant.png" alt="fleche"> </div>
+            <div class="lettre espace" (click)="tape(' ')">espace</div>
+            <div class="lettre delete" (click)="delete()">delete</div>
+        </div>
+        <!--azerty-->
+    </div>
+    <!--bas-->
+</div>
+<!--container-->

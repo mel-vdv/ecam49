@@ -1,0 +1,31 @@
+<div class="container">
+
+<div class="logo-pi">
+    <img src="./../../../assets/pi-blanc.png" alt="pi">
+</div>
+
+<div class="logo-ecam49">
+<img src="./../../../assets/ecam49.png" alt="ecam49">
+</div>
+
+
+<div class="login">
+<div>Veuillez entrer le mot de passe:</div>    
+<input autocomplete="off" type="text" [(ngModel)]="mdp"><br>
+<button (click)="login()">valider</button>
+</div>
+
+
+<div class="msg-error">
+   <p>{{message}}</p> 
+</div>
+
+<div class="logo-admin">
+<a routerLink="/acces"><img src="./../../../assets/admin.png" alt="admin"></a> 
+</div>
+
+
+</div>
+
+
+

@@ -1,0 +1,62 @@
+
+.ciel{
+    background: linear-gradient(180deg, #021013 , #074b57);
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    position:absolute;
+    top:0px;left:0px;
+   //z-index:0;
+}
+.ciel div{
+    background-color: aliceblue;
+  // z-index:1;
+    animation: briller infinite;
+    position: absolute;
+}
+@keyframes briller{
+    0%, 100%{
+        opacity: 1;
+    }
+    50%{
+        opacity: 0.2 ;
+    }
+}
+ @for $i from 0 through 250{
+     .ciel div:nth-child(#{$i}){
+         height: calc(random(10)/5)+px;
+         width: calc(random(10)/5)+px;
+         animation-duration: calc(random(4) + 1.5)+s;
+         top: (random(100))+vh;
+         left:(random(100))+vw;
+     }
+ }
+ // polices : -------------------------------
+ @font-face {
+    font-family: 'Press Start 2P';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/pressstart2p/v12/e3t4euO8T-267oIAQAu6jDQyK3nVivM.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+ 
+  @font-face {
+    font-family: "time";
+    src: url(./../assets/Technology.ttf) format("truetype");
+  }
+  @font-face {
+    font-family: "computer";
+    src: url(./../assets/slkscre.ttf) format("truetype");
+  }
+ 
+  
+  @font-face {
+    font-family: 'Concert One';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/concertone/v16/VEM1Ro9xs5PjtzCu-srDqSTijP4.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  //--------------------
+  

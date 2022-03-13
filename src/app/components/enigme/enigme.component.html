@@ -1,0 +1,24 @@
+<div class="saisie">
+    <div><img src="./../../../assets/plaque-enigme-rogne.png" alt="xx"></div>
+    <div *ngIf="message!=='code faux'">{{code}}</div>
+    <div *ngIf="message==='code faux'">{{message}}</div>
+</div>
+<!-------------------------------------------------------------->
+<div class="clavier">
+    <div><img src="./../../../assets/plaque-metal.png" alt="plaque metal"></div>
+    <div class="touches">
+        <div (click)="touche('0')">0</div>
+        <div (click)="touche('1')">1</div>
+        <div (click)="touche('2')">2</div>
+        <div (click)="touche('3')">3</div>
+        <div (click)="touche('4')">4</div>
+        <div (click)="touche('5')">5</div>
+        <div (click)="touche('6')">6</div>
+        <div (click)="touche('7')">7</div>
+        <div (click)="touche('8')">8</div>
+        <div (click)="touche('9')">9</div>
+        <div (click)="effacer()">del</div>
+        <div (click)="envoyerReponse()">ok</div>
+    </div>
+</div>
+<!------------------------------------------------------------------>

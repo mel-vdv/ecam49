@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="retour">
+        <img (click)="retour()" src="'./../../../../assets/retour.png" alt="retour">
+    </div>
+    <div class="label">
+        <p>Entrez le nom de</p>
+         <p>VOTRE EQUIPE:</p>
+    </div>
+    <div>
+        <input (click)="cliquer()" type="text"name="nom" [(ngModel)]="nom" autocomplete="off">
+    </div>
+    <div class="msg-error" *ngIf="clik && error">
+        <p>Nom d'équipe inexistant.</p>
+        <p>Veuilllez réessayer.</p>
+    </div>
+    <div class="valider">
+        <img (click)="connexion()" src="./../../../assets/v.png" alt="fleche">
+    </div>
+    
+</div>

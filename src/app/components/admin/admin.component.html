@@ -1,0 +1,58 @@
+<div class="container">
+
+    <div class="coche">
+        <button (click)="equipes=true">équipes</button>
+        <button (click)="equipes=false"> stands</button>
+    </div>
+    <!------------------------------------------------------------------------------------------------------------>
+    <div class="equipes" *ngIf="equipes">
+        <table>
+            <thead>
+                <th>EQUIPE</th>
+                <th>JOUEURS</th>
+                <th>TIMER</th>
+                <th>VOTE</th>
+            </thead>
+            <tbody *ngFor="let donnee of donnees">
+                <tr>
+                    <td>"<em>{{donnee.nom | titlecase}}</em>"</td>
+                    <td>
+                        <div>
+                            <img src="./../../../assets/joueur.png" alt="joueur">
+                            <img *ngIf="donnee.nbJoueurs>1" src="./../../../assets/joueur.png" alt="joueur">
+                            <img *ngIf="donnee.nbJoueurs>2" src="./../../../assets/joueur.png" alt="joueur">
+                            <img *ngIf="donnee.nbJoueurs>3" src="./../../../assets/joueur.png" alt="joueur">
+                        </div>
+
+                        <div *ngFor="let prenom of donnee.joueurs">
+                            <div>{{prenom| titlecase}}</div>
+                        </div>
+                    </td>
+                    <td>
+                        <em class="vert" *ngIf="donnee.gain">{{transfo(donnee.timerResultat)}}</em>
+                        <em class="rouge" *ngIf="!donnee.gain && !donnee.enCours">échec</em>
+                        <span *ngIf="donnee.enCours">en cours...</span>
+
+                    </td>
+                    <td>
+                        <span *ngIf="donnee.vote">stand n° <em>{{donnee.vote}}</em> </span>
+                        <span *ngIf="!donnee.vote"> / </span>
+
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+    <!-------------------------------------------------------------------------------------------->
+    <div class="stands" *ngIf="!equipes">
+        <ul *ngFor="let elu of elus">
+        
+                <li *ngIf="elu.vote">
+                    stand n°{{elu.stand}} : {{elu.vote}} votes
+                </li>
+          
+            </ul>
+    </div>
+
+</div>

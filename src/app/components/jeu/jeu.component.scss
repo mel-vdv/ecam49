@@ -1,0 +1,119 @@
+
+   
+  //--------------------------------------------------------------------------
+.container{
+width: 100vw;
+//height: 100vh;
+position: relative;
+background-color: black;
+//background-image: url(./../../../assets/beton.png);
+//background-size: cover;
+z-index:3;
+}
+.time{height: 10vh;}
+.stands{
+height: 100vw;
+}
+.enigme{height: 42vh;
+    position: absolute;
+    top: 58vh;
+}
+//------------------------------  stands  ------------------------------------------
+.stands img{
+    width:100vw;
+    height: 100vw;
+}
+.consignes{
+height: 58vw;width: 58vw; top: -95vw; left:15vw;
+overflow: hidden;
+position: relative;
+color: black;
+font-family:'Press Start 2P';
+font-size:3.8vw;
+line-height: 4.3vw;
+padding: 2vw;
+}
+.ecran-stands{
+   height:58vw;width: 58vw; top: -95vw; left:15vw;
+   display: grid;grid-template-columns: repeat(3,1fr);grid-template-rows: repeat(3,1fr);
+   position: relative;
+}
+
+.ecran-stands div{
+    font-size: 6vw; font-weight: bold;
+    width: 16vw;height: 16vw;
+    border-radius: 100%;
+    display: flex;
+    align-items: center; justify-content: center;
+    font-family: 'Press Start 2P';
+}
+//---------------- TIMER -------------------------------
+.time {
+   background-color: black;
+}
+.bordure{
+    margin: auto;
+    display: flex; justify-content: center ; align-items: center;
+    position: relative;
+    z-index: 3;  
+    width: 70vw;
+    height: 9vh; 
+    border: 0.2vh rgba(238, 204, 182, 0.856) solid;
+    border-radius: 2vh;   
+}
+.timer-cont{ 
+    box-sizing: border-box;
+    width: 100%;height: 100%;
+    border: 0.5vh rgb(92, 7, 7) solid;
+    border-radius: 2vh;
+}
+.timer{
+    background-color: black;
+    box-sizing: border-box;
+    width: 100%;height: 100%;
+    border: solid rgba(238, 209, 182, 0.856) 0.2vh;border-radius: 1vh;
+    display: flex; justify-content: center; align-items: center;
+}
+.timer div{
+    text-align: center;
+    width: 10vw;
+    font-family: "time";
+    font-size: 15vw;
+    color: rgb(235, 129, 129);
+    text-shadow:0 0 0.3vh red,0 0 0.5vh yellow, 0 0 2vh red,0 0 7vh red,
+    0 0 10vh red,0 0 17vh red,0 0 30vh red ;
+    animation: clignoter 1s linear 0.25s infinite;
+}
+@keyframes clignoter{
+    0%, 100%{
+ opacity: 1;
+    }
+    50%{
+opacity: 0.5;
+    }
+}
+//--------------- details ---------------
+.lumiere-rouge{
+    background-image: radial-gradient(red 0%, rgba(255,0,0,0.2) 100%);
+    border-radius: 100%;
+    width: 5.3vw;height:5vw; top:-49vw; left: 9vw;
+    position: relative;
+    animation: clignote 1s linear infinite;
+}
+.lumiere-verte{
+    background-image: radial-gradient(green 0%, rgba(154,205,50,0.2) 100% );
+    width: 5.5vw;
+    height:4vw;
+    position: relative;
+    top: -54vw;
+    left: 92vw;
+    animation: clignote 0.4s linear infinite;
+}
+@keyframes clignote{
+    0%, 100%{
+        opacity: 1;
+    }
+    50%{
+        opacity: 0.5;
+    }
+}
