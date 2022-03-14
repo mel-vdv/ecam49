@@ -31,6 +31,7 @@ export class LoginComponent implements OnInit {
   //----------------------
   fullscreen(){
     window.document.body.requestFullscreen();
+    //screen.orientation.lock('portrait');
   }
 
 

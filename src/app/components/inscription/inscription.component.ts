@@ -22,7 +22,7 @@ export class InscriptionComponent implements OnInit {
   message = '';
   //----------------------------------
   ngOnInit(): void {
-   // document.body.requestFullscreen();
+    // document.body.requestFullscreen();
     this.inscri = false;
     this.refus = false;
     this.page = 1;
@@ -46,9 +46,9 @@ export class InscriptionComponent implements OnInit {
     if (this.page !== 7 && n == 1 || n == -1 && this.page !== 1) {
       switch (this.nbJoueurs) {
         case 1: this.pages = [1, 2, 3, 7]; break;
-        case 2: this.pages = [1, 2, 3, 4, 7]; this.joueurs.push(this.nom2!); break;
-        case 3: this.pages = [1, 2, 3, 4, 5, 7]; this.joueurs.push(this.nom3!); break;
-        case 4: this.pages = [1, 2, 3, 4, 5, 6, 7]; this.joueurs.push(this.nom4!); break;
+        case 2: this.pages = [1, 2, 3, 4, 7]; break;
+        case 3: this.pages = [1, 2, 3, 4, 5, 7]; break;
+        case 4: this.pages = [1, 2, 3, 4, 5, 6, 7]; break;
         default: this.message = 'Le nombre de joueurs doit etre compris entre 1 et 4'; setTimeout(() => { this.message = ''; }, 4000); return;
 
       }
@@ -71,83 +71,98 @@ export class InscriptionComponent implements OnInit {
       this.jouer();
     }
   }
-    //-----------------------
-    tape(touche: string) {
-      this.motEnCours.push(touche);
-      this.maj();
-    }
-    //-----------------
-    touch(x: number) {
-      if (this.page === 1) {
-        this.nbJoueurs = x;
-      }
-    }
-    //----------------------
-    delete () {
-      if (this.motEnCours.length > 0) {
-        this.motEnCours.pop();
-        this.maj();
-      }
-    }
-    //------------------
-    maj() {
-      switch (this.page) {
-        case 2: this.nom = this.motEnCours.join(''); break;
-        case 3: this.nom1 = this.motEnCours.join(''); break;
-        case 4: this.nom2 = this.motEnCours.join(''); break;
-        case 5: this.nom3 = this.motEnCours.join(''); break;
-        case 6: this.nom4 = this.motEnCours.join(''); break;
-        default: console.log('shit');
-      }
-    }
-
-    //--------------------
-    valider() {
-      if (this.refus) {
-        setTimeout(() => {
-          this.refus = false; this.page = 2;
-        }, 5000);
-      }
-      else {
-        this.inscrire();
-      }
-    }
-    //----------------------------
-    inscrire() {
-      this.stands = [];
-      while (this.stands.length < 9) {
-        let random = Math.floor(Math.random() * 49) + 1;
-        if (!this.stands.includes(random)) {
-          this.stands.push(random);
-        }
-      }
-      switch (this.nbJoueurs) {
-        case 1: this.joueurs = [this.nom1!]; break;
-        case 2: this.joueurs = [this.nom1!, this.nom2!]; break;
-        case 3: this.joueurs = [this.nom1!, this.nom2!, this.nom3!]; break;
-        case 4: this.joueurs = [this.nom1!, this.nom2!, this.nom3!, this.nom4!]; break;
-        default: console.log('pb de joueurs');
-      }
-      if (this.joueurs.length > 0) {
-        let envoi = {
-          nom: this.nom,
-          nbJoueurs: this.nbJoueurs,
-          joueurs: this.joueurs,
-          stands: this.stands,
-          gain: false,
-          enCours: true,
-          voteFait: false
-        };
-        this.crud.create(envoi);
-        this.inscri = true;
-      }
-    };
-    //--------------------------
-    jouer(){
-      this.crud.getEquipeByName(this.nom).subscribe((data: any) => {
-        localStorage.setItem('id', data[0].id);
-        // this.auth.id = localStorage.getItem('id');
-        this.router.navigate([`/jeu/${data[0].id}`]);
-      });
+  //-----------------------
+  tape(touche: string) {
+    this.motEnCours.push(touche);
+    this.maj();
+  }
+  //-----------------
+  touch(x: number) {
+    if (this.page === 1) {
+      this.nbJoueurs = x;
     }
   }
+  //----------------------
+  delete() {
+    if (this.motEnCours.length > 0) {
+      this.motEnCours.pop();
+      this.maj();
+    }
+  }
+  //------------------
+  maj() {
+    switch (this.page) {
+      case 2: this.nom = this.motEnCours.join(''); break;
+      case 3: this.nom1 = this.motEnCours.join(''); break;
+      case 4: this.nom2 = this.motEnCours.join(''); break;
+      case 5: this.nom3 = this.motEnCours.join(''); break;
+      case 6: this.nom4 = this.motEnCours.join(''); break;
+      default: console.log('shit');
+    }
+  }
+
+  //--------------------
+  valider() {
+    switch (this.nbJoueurs) {
+      case 1: if (this.nom1 == '' || !this.nom1) { this.page = 3; console.log('on sort'); } else { this.verifName(); }; break;
+      case 2: if (this.nom1 == '' || !this.nom1) { this.page = 3; } else if (this.nom2 == '' || !this.nom2) { this.page = 4; } else { this.verifName(); }; break;
+      case 3: if (this.nom1 == '' || !this.nom1) { this.page = 3; } else if (this.nom2 == '' || !this.nom2) { this.page = 4; } else if (this.nom3 == '' || !this.nom3) { this.page = 5; } else { this.verifName(); }; break;
+      case 4: if (this.nom1 == '' || !this.nom1) { this.page = 3; } else if (this.nom2 == '' || !this.nom2) { this.page = 4; } else if (this.nom3 == '' || !this.nom3) { this.page = 5; } else if (this.nom4 == '' || !this.nom4) { this.page = 6; } else { this.verifName(); }; break;
+      default: console.log('pb');
+    }
+  }
+  //-------------------------
+  verifName() {
+    this.crud.getEquipeByName(this.nom).subscribe(data => {
+      if (data.length == 0 || !data) {
+        this.inscrire();
+      }
+      else {
+        this.refus = true;
+        setTimeout(() => {
+          this.nom = '';
+          this.page = 2;
+        }, 5000);
+      }
+
+    });
+  }
+  //----------------------------
+  inscrire() {
+    this.stands = [];
+    while (this.stands.length < 9) {
+      let random = Math.floor(Math.random() * 49) + 1;
+      if (!this.stands.includes(random)) {
+        this.stands.push(random);
+      }
+    }
+    switch (this.nbJoueurs) {
+      case 1: this.joueurs = [this.nom1!]; break;
+      case 2: this.joueurs = [this.nom1!, this.nom2!]; break;
+      case 3: this.joueurs = [this.nom1!, this.nom2!, this.nom3!]; break;
+      case 4: this.joueurs = [this.nom1!, this.nom2!, this.nom3!, this.nom4!]; break;
+      default: console.log('pb de joueurs');
+    }
+    if (this.joueurs.length > 0) {
+      let envoi = {
+        nom: this.nom,
+        nbJoueurs: this.nbJoueurs,
+        joueurs: this.joueurs,
+        stands: this.stands,
+        gain: false,
+        enCours: true,
+        voteFait: false
+      };
+      this.crud.create(envoi);
+      this.inscri = true;
+    }
+  };
+  //--------------------------
+  jouer() {
+    this.crud.getEquipeByName(this.nom).subscribe((data: any) => {
+      localStorage.setItem('id', data[0].id);
+      // this.auth.id = localStorage.getItem('id');
+      this.router.navigate([`/jeu/${data[0].id}`]);
+    });
+  }
+}
