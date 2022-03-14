@@ -16,7 +16,7 @@ export class CodeAdminComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    document.body.requestFullscreen();
+    //document.body.requestFullscreen();
   }
   login(){
     if(this.mdp.toLocaleLowerCase() ==='superbibi'){

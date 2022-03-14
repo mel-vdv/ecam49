@@ -11,7 +11,7 @@
 
 <div class="login">
 <div>Veuillez entrer le mot de passe:</div>    
-<input autocomplete="off" type="text" [(ngModel)]="mdp"><br>
+<input (click)="fullscreen()" autocomplete="off" type="text" [(ngModel)]="mdp"><br>
 <button (click)="login()">valider</button>
 </div>
 

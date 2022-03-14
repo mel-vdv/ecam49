@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    document.body.requestFullscreen();
+ //   document.body.requestFullscreen();
   }
   login(){
     if(this.mdp.toLocaleLowerCase() ==='ecam49'){
@@ -27,6 +27,10 @@ export class LoginComponent implements OnInit {
     else{
       this.message = 'Mot de passe erroné.'
     }
+  }
+  //----------------------
+  fullscreen(){
+    window.document.body.requestFullscreen();
   }
 
 

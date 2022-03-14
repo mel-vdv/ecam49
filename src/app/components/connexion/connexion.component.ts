@@ -19,7 +19,7 @@ export class ConnexionComponent implements OnInit {
   ) { }
   //--------------------------------------------------
   ngOnInit(): void {
-    document.body.requestFullscreen();
+   // document.body.requestFullscreen();
   }
   //--------------------------------------------------
   clik=false;
