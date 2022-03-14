@@ -23,6 +23,7 @@ export class AdminComponent implements OnInit {
 
   //-----------------------------------------------
 ngOnInit() {
+  document.body.requestFullscreen();
   this.equipes= true;
     this.crud.getAll().subscribe((data:Equipe[]) => {
       this.donnees = data;

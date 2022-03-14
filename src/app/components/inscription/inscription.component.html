@@ -10,38 +10,38 @@
             <div *ngIf="!inscri">
             <div class="page" *ngIf="page===1" >
                 <span *ngIf="message==''" >Nombre de joueurs :</span>
-                <input *ngIf="message==''" type="number" name="nbJoueurs" min="1" max="4" [(ngModel)]="nbJoueurs">
+                <input *ngIf="message==''" type="number" name="nbJoueurs" min="1" max="4" [(ngModel)]="nbJoueurs" autocomplete="off" readonly="true">
                 <span *ngIf="message!==''">{{message}}</span>
             </div>
 
             <div class="page" *ngIf="page===2">
                 <span>Nom d'equipe :</span> 
-                <input type="text" name="nom" [(ngModel)]="nom" autocomplete="off">
+                <input type="text" name="nom" [(ngModel)]="nom" autocomplete="off" readonly="true">
             </div>
 
 
             <div class="page" *ngIf="page==3">
-                <span>Nom du</span><span>Joueur 1 :</span>
-                <input type="text" name="nom1" required [(ngModel)]="nom1" autocomplete="off">
+                <span>Nom du Joueur 1 :</span>
+                <input type="text" name="nom1" required [(ngModel)]="nom1" autocomplete="off" readonly="true">
             </div>
 
             <div class="page" *ngIf="page==4">
                 <span>Nom du joueur 2 : </span> 
-                <input type="text" name="nom2" required [(ngModel)]="nom2" autocomplete="off">
+                <input type="text" name="nom2" required [(ngModel)]="nom2" autocomplete="off" readonly="true">
             </div>
 
             <div class="page" *ngIf="page==5">
                 <span>Nom du joueur 3 : </span> 
-                <input type="text" name="nom3" required [(ngModel)]="nom3" autocomplete="off">
+                <input type="text" name="nom3" required [(ngModel)]="nom3" autocomplete="off" readonly="true">
             </div>
 
             <div class="page" *ngIf="page==6">
                 <span>Nom du joueur 4 : </span> 
-                <input type="text" name="nom4" required [(ngModel)]="nom4" autocomplete="off">
+                <input type="text" name="nom4" required [(ngModel)]="nom4" autocomplete="off" readonly="true">
             </div>
 
             <div class="page" *ngIf="page==7">
-                <span *ngIf="!refus">Cliquez sur Enter pour valider votre inscription</span>  
+                <span *ngIf="!refus">Cliquez sur 'Enter' pour valider votre inscription.</span>  
                 <span *ngIf="refus">Désolé, ce nom est déjà pris par une autre équipe.</span>
 
             </div>

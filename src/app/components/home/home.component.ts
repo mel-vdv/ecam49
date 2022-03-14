@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    document.body.requestFullscreen();
   }
   nav(lieu:string){
  this.router.navigate(['/'+lieu+'']);

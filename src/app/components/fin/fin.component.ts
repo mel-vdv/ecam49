@@ -18,6 +18,7 @@ export class FinComponent implements OnInit {
   ) { }
 //--------------------------------
  async ngOnInit() {
+  document.body.requestFullscreen();
   this.activatedRoute.paramMap.subscribe((params: any) => {
       this.auth.id = params.get('id');
   }  );

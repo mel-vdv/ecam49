@@ -22,6 +22,7 @@ export class InscriptionComponent implements OnInit {
   message = '';
   //----------------------------------
   ngOnInit(): void {
+    document.body.requestFullscreen();
     this.inscri = false;
     this.refus = false;
     this.page = 1;

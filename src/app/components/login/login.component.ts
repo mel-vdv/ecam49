@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    document.body.requestFullscreen();
   }
   login(){
     if(this.mdp.toLocaleLowerCase() ==='ecam49'){
