@@ -9,45 +9,45 @@
         <div class="affichage">
             <div *ngIf="!inscri">
             <div class="page" *ngIf="page===1" >
-                <span *ngIf="message==''" >Nombre de participants :</span>
+                <span *ngIf="message==''" >Nombre de joueurs :</span>
                 <input *ngIf="message==''" type="number" name="nbJoueurs" min="1" max="4" [(ngModel)]="nbJoueurs">
                 <span *ngIf="message!==''">{{message}}</span>
             </div>
 
             <div class="page" *ngIf="page===2">
-                <span>Nom d'equipe :</span> <br> <br>
+                <span>Nom d'equipe :</span> 
                 <input type="text" name="nom" [(ngModel)]="nom" autocomplete="off">
             </div>
 
 
             <div class="page" *ngIf="page==3">
-                <span>Nom du</span><span>Joueur 1 :</span><br> <br>
+                <span>Nom du</span><span>Joueur 1 :</span>
                 <input type="text" name="nom1" required [(ngModel)]="nom1" autocomplete="off">
             </div>
 
             <div class="page" *ngIf="page==4">
-                <p>Nom du joueur2 : </p> <br> <br>
+                <span>Nom du joueur 2 : </span> 
                 <input type="text" name="nom2" required [(ngModel)]="nom2" autocomplete="off">
             </div>
 
             <div class="page" *ngIf="page==5">
-                <p>Nom du joueur3 : </p> <br> <br>
+                <span>Nom du joueur 3 : </span> 
                 <input type="text" name="nom3" required [(ngModel)]="nom3" autocomplete="off">
             </div>
 
             <div class="page" *ngIf="page==6">
-                <p>Nom du joueur4 : </p> <br> <br>
+                <span>Nom du joueur 4 : </span> 
                 <input type="text" name="nom4" required [(ngModel)]="nom4" autocomplete="off">
             </div>
 
             <div class="page" *ngIf="page==7">
-                <div *ngIf="!refus">Cliquez sur Enter pour valider l'inscription</div>  
-                <div *ngIf="refus">Désolé, ce nom est déjà pris par une autre équipe.</div>
+                <span *ngIf="!refus">Cliquez sur Enter pour valider votre inscription</span>  
+                <span *ngIf="refus">Désolé, ce nom est déjà pris par une autre équipe.</span>
 
             </div>
         </div><!-- inscri-->
         <div *ngIf="inscri">
-            Bienvenue {{nom}}, cliquez sur 'Enter' pour jouer.
+            <span>Bienvenue {{nom}}, cliquez sur 'Enter' pour jouer.</span>
         </div>
     </div>
         <!--affichage-->

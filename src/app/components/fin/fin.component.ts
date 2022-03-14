@@ -17,11 +17,9 @@ export class FinComponent implements OnInit {
     private crud: CrudservService
   ) { }
 //--------------------------------
- ngOnInit() {
-   console.log('f5');
+ async ngOnInit() {
   this.activatedRoute.paramMap.subscribe((params: any) => {
       this.auth.id = params.get('id');
-      console.log('ngoninit fin, id : ',this.auth.id);
   }  );
   this.crud.getEquipeById(this.auth.id).subscribe((data: Equipe) => {
      this.auth.nom= data.nom;
@@ -35,7 +33,7 @@ export class FinComponent implements OnInit {
 
 }
 //---------------------------------
-  selection=0;
+  selection?:number;
 select(e:any, chiffre:number){
   
 document.querySelectorAll('span').forEach(s=> s.classList.remove('choisi'));
@@ -54,8 +52,6 @@ voter(){
   this.auth.voteFait = true;
   this.auth.vote = this.selection;
   //localStorage.setItem('vote', this.selection.toString());
-console.log('voter : ', this.selection);
-console.log('id : ',this.auth.id!)
   this.crud.voter(envoi);
   this.crud.voterBis(this.selection!);
  }

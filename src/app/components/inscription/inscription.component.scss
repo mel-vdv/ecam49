@@ -49,8 +49,8 @@ width:100%; height:auto;;
 }
 .affichage{
 position: relative;
-top: -70vw; left: 15vw;
-height:55vw; width: 70vw;
+top: -65vw; left: 15vw;
+height:50vw; width: 70vw;
 display: flex;
 flex-direction: column;justify-content: center;align-items: center;
 }
@@ -93,4 +93,12 @@ background-image: url(./../../../assets/enter.png);
     width: 20vw;
     grid-column: 9/11;
 background-image: url(./../../../assets/delete.png);
+}
+.page{
+    //background-color: rgba(255,0,0,0.5);
+    height:50vw; width: 70vw;
+    display: flex;
+    flex-direction: column; 
+    justify-content: space-around;
+    
 }

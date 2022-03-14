@@ -11,8 +11,8 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./jeu.component.scss']
 })
 export class JeuComponent implements OnInit {
-  sec = 0; zeroS = '';
-  min = 2; zeroM = '';
+  sec!:number; zeroS = '';
+  min!:number; zeroM = '';
  /// sub: Subscription;
 
  
@@ -36,19 +36,9 @@ export class JeuComponent implements OnInit {
    ngOnInit() {
    this.activatedRoute.paramMap.subscribe((params: any) => {
        this.auth.id = params.get('id');
-     // localStorage.setItem('id', x);
     });
   
-    this.crud.getEquipeById(this.auth.id).subscribe((data: Equipe) => {
-     // this.auth.id = data.id;
-    // localStorage.setItem('nom', data.nom);
-    // localStorage.setItem('stands', JSON.stringify(data.stands));
-   //  localStorage.setItem('timerBegin', JSON.stringify(data.timerBegin!));
-    // this.auth.nom = localStorage.getItem('nom');
-    // this.auth.stands = JSON.parse(localStorage.getItem('stands')!);
-    // this.auth.timerBegin = parseInt(localStorage.getItem('timerBegin')!);
-     
-      this.auth.nom= data.nom;
+    this.crud.getEquipeById(this.auth.id).subscribe((data: Equipe) => {  this.auth.nom= data.nom;
       this.auth.stands= data.stands;
       this.auth.enCours=data.enCours;
       this.auth.gain=data.gain;
@@ -59,13 +49,12 @@ export class JeuComponent implements OnInit {
       }
       if(data.enCours){
         if (!this.auth.timerBegin) {
- console.log('ya pas : ', this.auth.id);
           this.crud.timerDebut(this.auth.id!);
-          if (!this.unefois) { this.go(0, 59); } this.unefois = true; return;
+          if (!this.unefois) { this.go(59, 59); } this.unefois = true; return;
         }
         else {
           let maintenant = Date.now();
-          let reste = 60- (Math.floor((maintenant - this.auth.timerBegin!) / 1000));
+          let reste = 3600- (Math.floor((maintenant - this.auth.timerBegin!) / 1000));
           if (reste > 0) {
             const xmin = Math.floor(reste / 60);
             const xsec = reste - (60 * xmin);

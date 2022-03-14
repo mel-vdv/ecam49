@@ -31,7 +31,6 @@ import { HomeComponent } from './components/home/home.component';
 import { ConnexionComponent } from './components/connexion/connexion.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CodeAdminComponent } from './components/code-admin/code-admin.component';
-import { InscrComponent } from './components/inscr/inscr.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +43,6 @@ import { InscrComponent } from './components/inscr/inscr.component';
     HomeComponent,
     ConnexionComponent,
     CodeAdminComponent,
-    InscrComponent
   ],
   imports: [
     BrowserModule,
