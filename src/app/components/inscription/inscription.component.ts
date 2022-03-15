@@ -20,12 +20,18 @@ export class InscriptionComponent implements OnInit {
   inscri!: boolean;
   refus?: boolean;
   message = '';
+  lignes2?:number; lignes3?:number; lignes4?:number; lignes5?:number; lignes6?:number;
   //----------------------------------
   ngOnInit(): void {
-    // document.body.requestFullscreen();
     this.inscri = false;
     this.refus = false;
     this.page = 1;
+    if(!this.lignes2){this.lignes2 = 1;}
+    if(!this.lignes3){this.lignes3 = 1;}
+    if(!this.lignes4){this.lignes4 = 1;}
+    if(!this.lignes5){this.lignes5 = 1;}
+    if(!this.lignes6){this.lignes6 = 1;}
+    
   }
   //------------------------------------
   nom!: string;
@@ -92,11 +98,25 @@ export class InscriptionComponent implements OnInit {
   //------------------
   maj() {
     switch (this.page) {
-      case 2: this.nom = this.motEnCours.join(''); break;
-      case 3: this.nom1 = this.motEnCours.join(''); break;
-      case 4: this.nom2 = this.motEnCours.join(''); break;
-      case 5: this.nom3 = this.motEnCours.join(''); break;
-      case 6: this.nom4 = this.motEnCours.join(''); break;
+      case 2:
+        if(this.motEnCours.length>10){
+          this.lignes2 = 2;
+        } this.nom = this.motEnCours.join('');
+       break;
+      case 3: 
+      if(this.motEnCours.length>10){
+        this.lignes3 = 2;
+      }this.nom1 = this.motEnCours.join(''); break;
+      case 4:  if(this.motEnCours.length>10){
+        this.lignes4 = 2;
+      } this.nom2 = this.motEnCours.join(''); break;
+      case 5:  if(this.motEnCours.length>10){
+        this.lignes5 = 2;
+      } this.nom3 = this.motEnCours.join(''); break;
+      case 6:
+        if(this.motEnCours.length>10){
+          this.lignes6 = 2;
+        } this.nom4 = this.motEnCours.join(''); break;
       default: console.log('shit');
     }
   }
@@ -154,15 +174,19 @@ export class InscriptionComponent implements OnInit {
         voteFait: false
       };
       this.crud.create(envoi);
+      this.auth.nom = this.nom;
       this.inscri = true;
     }
   };
   //--------------------------
   jouer() {
-    this.crud.getEquipeByName(this.nom).subscribe((data: any) => {
+    this.crud.getEquipeByName(this.auth.nom).subscribe((data: any) => {
       localStorage.setItem('id', data[0].id);
       // this.auth.id = localStorage.getItem('id');
       this.router.navigate([`/jeu/${data[0].id}`]);
     });
   }
+  //------------------------------------
+
+  
 }

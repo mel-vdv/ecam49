@@ -18,7 +18,7 @@
         <div *ngIf="consignesDiv" class="consignes" (click)="changer('stands')">
             
             Cliquez sur l'écran pour voir dans quels stands vous rendre. Des indices vous aideront à trouver les 12 chiffres du code de lancement
-                de la fusée.
+                de la fusée
         </div>
         <div *ngIf="standsDiv" class="ecran-stands" (click)="changer('consignes')">
             <div *ngFor="let stand of auth.stands">

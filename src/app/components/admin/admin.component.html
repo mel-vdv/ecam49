@@ -4,7 +4,6 @@
         <button (click)="equipes=true">équipes</button>
         <button (click)="equipes=false"> stands</button>
     </div>
-    <!------------------------------------------------------------------------------------------------------------>
     <div class="equipes" *ngIf="equipes">
         <table>
             <thead>
@@ -13,9 +12,10 @@
                 <th>TIMER</th>
                 <th>VOTE</th>
             </thead>
+
             <tbody *ngFor="let donnee of donnees">
                 <tr>
-                    <td>"<em>{{donnee.nom | titlecase}}</em>"</td>
+                    <td>"{{donnee.nom | titlecase}}"</td>
                     <td>
                         <div>
                             <img src="./../../../assets/joueur.png" alt="joueur">
@@ -46,13 +46,14 @@
     </div>
     <!-------------------------------------------------------------------------------------------->
     <div class="stands" *ngIf="!equipes">
-        <ul *ngFor="let elu of elus">
-        
-                <li *ngIf="elu.vote">
-                    stand n°{{elu.stand}} : {{elu.vote}} votes
-                </li>
-          
-            </ul>
+        <div *ngFor="let elu of elus">
+
+            <div *ngIf="elu.vote" class="casa-vote">
+               <div>n°<em>{{elu.stand}}</em> : </div>
+               <div><em>{{elu.vote}}</em><img src="./../../../assets/etoile.png" alt="etoile"></div>
+            </div>
+
+        </div>
     </div>
 
 </div>

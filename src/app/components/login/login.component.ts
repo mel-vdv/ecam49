@@ -14,13 +14,12 @@ export class LoginComponent implements OnInit {
   constructor(
     private router : Router,
     private crud: CrudservService
-  ) { }
+  ) { 
 
-  ngOnInit(): void {
- //   document.body.requestFullscreen();
   }
+
   login(){
-    if(this.mdp.toLocaleLowerCase() ==='ecam49'){
+    if(this.mdp.toLocaleLowerCase() ==='ecam49'||this.mdp.toLocaleLowerCase() ==='ecam49'+' '){
     this.router.navigate(['/home']);
     }
     
@@ -29,10 +28,16 @@ export class LoginComponent implements OnInit {
     }
   }
   //----------------------
-  fullscreen(){
-    window.document.body.requestFullscreen();
-    //screen.orientation.lock('portrait');
-  }
+
+  ngOnInit(): void {
+    window.addEventListener('keydown', (e)=>{
+      if(e.key ==="enter"){
+         this.login();
+      }
+     });
+}
+
+
 
 
     

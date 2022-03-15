@@ -1,20 +1,5 @@
 <div class="container">
-    <div class="ordinateur">
-        <div>
-            <img src="./../../../assets/ordinateur.png" alt="ordinateur">
-        </div>
-        <div class='vote'>
-            <div *ngIf="!auth.voteFait" style="text-align: center;">Veuillez voter</div>
-            <div *ngIf="!auth.voteFait" class="stands">
-                <div *ngFor="let stand of auth.stands">
-                    <span (click)="select($event, stand)">{{stand}}</span>
-                </div>
-            </div>
-            <div *ngIf="!auth.voteFait"><button (click)="voter()">valider</button></div>
-            <div *ngIf="auth.voteFait">Votre vote pour le stand numero {{auth.vote}} a bien ete pris en compte.</div>
-        </div>
-    </div>
-    <div class="enigme">
+     <div class="enigme">
         <img src="./../../../assets/enigme-plaque.png" alt="">
         <div class="ecran">
             <div class="bravo" *ngIf="auth.gain">
@@ -26,6 +11,25 @@
         </div>
 
     </div>
+    <div class="ordinateur">
+        <div>
+            <img src="./../../../assets/ordinateur.png" alt="ordinateur">
+        </div>
+        <div class="vote" *ngIf="partie==1 && !auth.voteFait">
+            <div>Procédons au vote de l'étage de la fusée que vous avez préféré...</div>
+        </div>
+        <div class='vote' *ngIf="partie==2">
+            <div *ngIf="!auth.voteFait" style="text-align: center;">Veuillez voter</div>
+            <div *ngIf="!auth.voteFait" class="stands">
+                <div *ngFor="let stand of auth.stands">
+                    <span (click)="select($event, stand)">{{stand}}</span>
+                </div>
+            </div>
+            <div *ngIf="!auth.voteFait"><button (click)="voter()">valider</button></div>
+            <div *ngIf="auth.voteFait">Votre vote pour le stand numero {{auth.vote}} a bien ete pris en compte.</div>
+        </div>
+    </div>
+   
     <div>
         <a routerLink="/"><button style="color:black;">QUITTER</button></a> 
     </div>

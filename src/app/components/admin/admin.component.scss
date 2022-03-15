@@ -1,6 +1,7 @@
 .container{
+    user-select: none;
     background: linear-gradient(180deg, #021013 , #074b57);
-    width: 100vw;//height: 100vh;
+    width: 100vw; height:100vh;
     position: relative; z-index: 3;
 }
 .coche{
@@ -9,19 +10,26 @@
     display: flex;
     align-items: center;justify-content: space-around;
 }
-button{
-    display: block;
-}
-
-.stands ul li{
-    color: white;
-    list-style: none;
-    text-align: center;}
 table{
     font-size: 5vw;
     width: 100vw;
     background-color: white;
     color:black;
+}
+.stands{
+    width: 100vw;
+    height: 92vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.stands img{
+    height:min(4vh,8vw); width: auto;
+}
+button{
+    display: block;
 }
 
 td, th {
@@ -48,4 +56,19 @@ img[alt='joueur']{
 em{
     font-weight: bold;
     font-style: normal;
+}
+.casa-vote{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 8vh;
+    width: 18vw;
+   background-color: rgba(255,255,255,0.3);
+   border-radius: 2vw;
+   font-size: 2vh;
+   text-align: center;
+}
+.casa-vote div{
+    height: 4vh;
+    width: 18vw;
 }

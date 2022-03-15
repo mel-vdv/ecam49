@@ -1,4 +1,5 @@
 .container{
+    user-select: none;
     z-index: 3;
     display: flex;
     flex-direction: column;
@@ -51,7 +52,7 @@ button{
     height: 8vh;
 }
 .logo-admin img{
-    width: 20vw;
+    width: 15vw;
 }
 .logo-admin{
    padding-left: 75vw;

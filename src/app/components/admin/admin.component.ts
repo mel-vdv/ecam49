@@ -10,10 +10,9 @@ import { Observable } from 'rxjs';
   styleUrls: ['./admin.component.scss']
 })
 export class AdminComponent implements OnInit {
-  donnees!:Equipe[];
+  donnees?:Equipe[];
   // pb en html , ne saffiche pas si je met Observable<Election[]>
   elus!: Election[];
-  gagnants$!: Equipe[];
   equipes!:boolean;
   constructor(
     private crud: CrudservService
@@ -22,13 +21,13 @@ export class AdminComponent implements OnInit {
   }
 
   //-----------------------------------------------
-ngOnInit() {
- // document.body.requestFullscreen();
+ ngOnInit() {
   this.equipes= true;
-    this.crud.getAll().subscribe((data:Equipe[]) => {
-      this.donnees = data;
+    this.crud.getAll().subscribe((datas:Equipe[]) => {
+      this.donnees =  datas;
+      console.log(JSON.stringify(datas));
     });
-   this.crud.getElu().subscribe(data => { //ne marche pas si data:any
+   this.crud.getElu().subscribe((data:Election[]) => { //ne marche pas si data:any
       this.elus = data;
     });
   }

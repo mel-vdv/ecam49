@@ -1,6 +1,6 @@
 
 .container{
-
+ user-select: none;
     width:100vw;height: 100vh;
     display: flex; justify-content: center;align-items: center;flex-direction: column;
     position: relative; z-index: 3;
@@ -19,29 +19,32 @@ height:50vw;
 width: 100vw;
 }
 
-input, input:active, button{
+input, input:active, button, textarea{
     background-color: rgba(0,0,0,0);
 }
 input{
     color:white;
     font-family: 'Press Start 2P';
     display: block;
-    height: 15vw;
+    height: 15vw;width: 15vw;
     font-size: 10vw;
+    margin-inline: auto;
+    text-align: center;
+}
+textarea{
+    color:white;
+    font-family: 'Press Start 2P';
+    display: block;
+    //height: 15vw;
+    font-size: 6vw;
     margin-inline: auto;
 }
 span{
+     user-select: none;
     text-align: center;
     line-height: 1.3em;
 }
 
-input[type="number"]{
-    width: 15vw; font-size: 10vw;
-    text-align: center;
-}
-input[type="text"]{
-    width : 90%; font-size: 7vw;
-}
 .ecran{
     width:100vw; height: 81vw;
 }
@@ -96,7 +99,7 @@ background-image: url(./../../../assets/enter.png);
 background-image: url(./../../../assets/delete.png);
 }
 .page{
-    //background-color: rgba(255,0,0,0.5);
+    word-break: break-word;
     height:50vw; width: 70vw;
     display: flex;
     flex-direction: column; 

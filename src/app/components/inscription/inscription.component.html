@@ -15,39 +15,39 @@
             </div>
 
             <div class="page" *ngIf="page===2">
-                <span>Nom d'equipe :</span> 
-                <input type="text" name="nom" [(ngModel)]="nom" autocomplete="off" readonly="true">
+                <span>Nom d'équipe :</span> 
+                <textarea  wrap="hard" cols="10" rows="{{lignes2}}" name="nom" id="nomequipe" [(ngModel)]="nom" autocomplete="off" readonly="true"></textarea>
             </div>
 
 
             <div class="page" *ngIf="page==3">
                 <span>Nom du Joueur 1 :</span>
-                <input type="text" name="nom1" required [(ngModel)]="nom1" autocomplete="off" readonly="true">
+                <textarea  wrap="hard" cols="10" rows="{{lignes3}}" name="nom1" required [(ngModel)]="nom1" autocomplete="off" readonly="true"></textarea>
             </div>
 
             <div class="page" *ngIf="page==4">
                 <span>Nom du joueur 2 : </span> 
-                <input type="text" name="nom2" required [(ngModel)]="nom2" autocomplete="off" readonly="true">
+                <textarea  wrap="hard" cols="10" rows="{{lignes4}}" name="nom2" required [(ngModel)]="nom2" autocomplete="off" readonly="true"></textarea>
             </div>
 
             <div class="page" *ngIf="page==5">
                 <span>Nom du joueur 3 : </span> 
-                <input type="text" name="nom3" required [(ngModel)]="nom3" autocomplete="off" readonly="true">
+                <textarea  wrap="hard" cols="10" rows="{{lignes5}}" name="nom3" required [(ngModel)]="nom3" autocomplete="off" readonly="true"></textarea>
             </div>
 
             <div class="page" *ngIf="page==6">
                 <span>Nom du joueur 4 : </span> 
-                <input type="text" name="nom4" required [(ngModel)]="nom4" autocomplete="off" readonly="true">
+                <textarea  wrap="hard" cols="10" rows="{{lignes6}}" name="nom4" required [(ngModel)]="nom4" autocomplete="off" readonly="true"></textarea>
             </div>
 
             <div class="page" *ngIf="page==7">
-                <span *ngIf="!refus">Cliquez sur 'Enter' pour valider votre inscription.</span>  
-                <span *ngIf="refus">Désolé, ce nom est déjà pris par une autre équipe.</span>
+                <span *ngIf="!refus" >Cliquez sur Enter pour valider votre inscription</span>  
+                <span *ngIf="refus">Désolé, ce nom est déjà pris par une autre équipe</span>
 
             </div>
         </div><!-- inscri-->
-        <div *ngIf="inscri">
-            <span>Bienvenue {{nom}}, cliquez sur 'Enter' pour jouer.</span>
+        <div *ngIf="inscri" class="page">
+            <span>Bienvenue {{auth.nom}}, cliquez sur Enter pour jouer.</span>
         </div>
     </div>
         <!--affichage-->

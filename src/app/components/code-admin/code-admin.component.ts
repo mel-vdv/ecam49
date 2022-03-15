@@ -16,10 +16,14 @@ export class CodeAdminComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    //document.body.requestFullscreen();
+    window.addEventListener('keydown', (e)=>{
+      if(e.key ==="enter"){
+         this.login();
+      }
+     });
   }
   login(){
-    if(this.mdp.toLocaleLowerCase() ==='superbibi'){
+    if(this.mdp.toLocaleLowerCase() ==='admin49'||this.mdp.toLocaleLowerCase() ==='admin49'+' '){
     this.router.navigate(['/admin']);
     }
     
