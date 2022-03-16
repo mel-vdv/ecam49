@@ -17,7 +17,7 @@
         <img src="./../../../assets/machine1.png" alt="ordi">
         <div *ngIf="consignesDiv" class="consignes" (click)="changer('stands')">
             
-            Cliquez sur l'écran pour voir dans quels stands vous rendre. Des indices vous aideront à trouver les 12 chiffres du code de lancement
+            Cliquez sur l'écran pour voir dans quels étages vous rendre. Des indices vous aideront à trouver les 12 chiffres du code de lancement
                 de la fusée
         </div>
         <div *ngIf="standsDiv" class="ecran-stands" (click)="changer('consignes')">
@@ -25,8 +25,7 @@
                 <div>{{stand}}</div>
             </div>
         </div>
-        <div class="lumiere-rouge"></div>
-        <div class="lumiere-verte"></div>
+   
     </div>
     <!---------------------------------------- ENIGME -------------------------------------------------->
     <div class="enigme">

@@ -93,28 +93,3 @@ padding: 2vw;
 opacity: 0.5;
     }
 }
-//--------------- details ---------------
-.lumiere-rouge{
-    background-image: radial-gradient(red 0%, rgba(255,0,0,0.2) 100%);
-    border-radius: 100%;
-    width: 5.3vw;height:5vw; top:-49vw; left: 9vw;
-    position: relative;
-    animation: clignote 1s linear infinite;
-}
-.lumiere-verte{
-    background-image: radial-gradient(green 0%, rgba(154,205,50,0.2) 100% );
-    width: 5.5vw;
-    height:4vw;
-    position: relative;
-    top: -54vw;
-    left: 92vw;
-    animation: clignote 0.4s linear infinite;
-}
-@keyframes clignote{
-    0%, 100%{
-        opacity: 1;
-    }
-    50%{
-        opacity: 0.5;
-    }
-}

@@ -35,6 +35,8 @@ export class LoginComponent implements OnInit {
          this.login();
       }
      });
+     window.screen.orientation.lock('portrait-primary');
+     screen.orientation.lock('portrait-primary');
 }
 
 
