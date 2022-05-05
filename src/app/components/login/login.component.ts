@@ -30,10 +30,11 @@ export class LoginComponent implements OnInit {
   //----------------------
 
   ngOnInit(): void {
-    window.addEventListener('keydown', (e)=>{
-      if(e.key ==="enter"){
-         this.login();
-      }
+    window.addEventListener('keypress', (event)=>{
+if(event.key==='Enter'){
+  this.login();
+}
+      
      });
      window.screen.orientation.lock('portrait-primary');
      screen.orientation.lock('portrait-primary');

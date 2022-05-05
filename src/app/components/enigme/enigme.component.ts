@@ -3,6 +3,7 @@ import { CrudservService } from './../../services/crudserv.service';
 import { Component, OnInit } from '@angular/core';
 //import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ifStmt } from '@angular/compiler/src/output/output_ast';
 @Component({
   selector: 'app-enigme',
   templateUrl: './enigme.component.html',
@@ -32,7 +33,17 @@ export class EnigmeComponent implements OnInit {
     }
 
   envoyerReponse() {
-    if ( this.code === '500501142342') {
+   // if ( this.code === '500501142342') {
+     if(
+       (
+         (
+         this.tableauChiffres[1]=='4' && (this.tableauChiffres[2]=='8'||this.tableauChiffres[2]=='9')
+         )
+        || (this.tableauChiffres[1]=='5' && this.tableauChiffres[2]=='0')
+        )
+        && this.tableauChiffres[7]=='1' 
+        && this.tableauChiffres[8]=='4'
+        ){
       this.gagner();
     }
     else {
@@ -62,7 +73,8 @@ touche(chiffre:string){
   if(this.tableauChiffres.length<13){
     this.message='';
     this.tableauChiffres.push(chiffre);
-    this.code = this.tableauChiffres.join('');}
+    this.code = this.tableauChiffres.join('');
+}
 }
 effacer(){
   this.tableauChiffres.pop();

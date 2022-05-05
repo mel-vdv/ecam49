@@ -34,6 +34,7 @@ export class JeuComponent implements OnInit {
   //ne marche pas si any, car id string attendu(crud, auth..)
 
    ngOnInit() {
+
  //   document.body.requestFullscreen();
    this.activatedRoute.paramMap.subscribe((params: any) => {
        this.auth.id = params.get('id');

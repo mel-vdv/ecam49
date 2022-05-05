@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" id="container">
 
     <div class="haut">
 
@@ -21,26 +21,46 @@
 
 
             <div class="page" *ngIf="page==3">
-                <span>Nom du Joueur 1 :</span>
-                <textarea  wrap="hard" cols="10" rows="{{lignes3}}" name="nom1" required [(ngModel)]="nom1" autocomplete="off" readonly="true"></textarea>
+                <span>Prénom du Joueur 1 :</span>
+                <textarea  wrap="hard" cols="10" rows="{{lignes3}}" name="nom1" required [(ngModel)]="prenom1" autocomplete="off" readonly="true"></textarea>
             </div>
 
             <div class="page" *ngIf="page==4">
-                <span>Nom du joueur 2 : </span> 
-                <textarea  wrap="hard" cols="10" rows="{{lignes4}}" name="nom2" required [(ngModel)]="nom2" autocomplete="off" readonly="true"></textarea>
+                <span>Nom du Joueur 1 :</span>
+                <textarea  wrap="hard" cols="10" rows="{{lignes4}}" name="nom1" required [(ngModel)]="nom1" autocomplete="off" readonly="true"></textarea>
             </div>
 
             <div class="page" *ngIf="page==5">
-                <span>Nom du joueur 3 : </span> 
-                <textarea  wrap="hard" cols="10" rows="{{lignes5}}" name="nom3" required [(ngModel)]="nom3" autocomplete="off" readonly="true"></textarea>
+                <span>Prénom du joueur 2 : </span> 
+                <textarea  wrap="hard" cols="10" rows="{{lignes5}}" name="nom2" required [(ngModel)]="prenom2" autocomplete="off" readonly="true"></textarea>
             </div>
 
             <div class="page" *ngIf="page==6">
-                <span>Nom du joueur 4 : </span> 
-                <textarea  wrap="hard" cols="10" rows="{{lignes6}}" name="nom4" required [(ngModel)]="nom4" autocomplete="off" readonly="true"></textarea>
+                <span>Nom du Joueur 2 :</span>
+                <textarea  wrap="hard" cols="10" rows="{{lignes6}}" name="nom1" required [(ngModel)]="nom2" autocomplete="off" readonly="true"></textarea>
             </div>
 
             <div class="page" *ngIf="page==7">
+                <span>Prénom du joueur 3 : </span> 
+                <textarea  wrap="hard" cols="10" rows="{{lignes7}}" name="nom3" required [(ngModel)]="prenom3" autocomplete="off" readonly="true"></textarea>
+            </div>
+
+            <div class="page" *ngIf="page==8">
+                <span>Nom du Joueur 3 :</span>
+                <textarea  wrap="hard" cols="10" rows="{{lignes8}}" name="nom1" required [(ngModel)]="nom3" autocomplete="off" readonly="true"></textarea>
+            </div>
+
+            <div class="page" *ngIf="page==9">
+                <span>Prénom du joueur 4 : </span> 
+                <textarea  wrap="hard" cols="10" rows="{{lignes9}}" name="nom4" required [(ngModel)]="prenom4" autocomplete="off" readonly="true"></textarea>
+            </div>
+
+            <div class="page" *ngIf="page==10">
+                <span>Nom du Joueur 4 :</span>
+                <textarea  wrap="hard" cols="10" rows="{{lignes10}}" name="nom1" required [(ngModel)]="nom4" autocomplete="off" readonly="true"></textarea>
+            </div>
+
+            <div class="page" *ngIf="page==11">
                 <span *ngIf="!refus" >Cliquez sur Enter pour valider votre inscription</span>  
                 <span *ngIf="refus">Désolé, ce nom est déjà pris par une autre équipe</span>
 

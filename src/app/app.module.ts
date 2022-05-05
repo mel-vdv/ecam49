@@ -31,6 +31,7 @@ import { HomeComponent } from './components/home/home.component';
 import { ConnexionComponent } from './components/connexion/connexion.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CodeAdminComponent } from './components/code-admin/code-admin.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,7 +60,13 @@ import { CodeAdminComponent } from './components/code-admin/code-admin.component
     provideAuth(() => getAuth()),
     provideDatabase(() => getDatabase()),
     provideFirestore(() => getFirestore()),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
   providers: [
     AuthServService, CrudservService

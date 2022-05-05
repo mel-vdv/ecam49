@@ -16,8 +16,8 @@ export class CodeAdminComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    window.addEventListener('keydown', (e)=>{
-      if(e.key ==="enter"){
+    window.addEventListener('keypress', (e)=>{
+      if(e.key ==="Enter"){
          this.login();
       }
      });

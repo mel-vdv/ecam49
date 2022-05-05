@@ -26,7 +26,7 @@
      .ciel div:nth-child(#{$i}){
          height: calc(random(10)/5)+px;
          width: calc(random(10)/5)+px;
-         animation-duration: calc(random(4) + 1.5)+s;
+         animation-duration: calc(random(3) + 0.6)+s;
          top: (random(100))+vh;
          left:(random(100))+vw;
      }

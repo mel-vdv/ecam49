@@ -19,7 +19,7 @@
             <div>Procédons au vote de l'étage de la fusée que vous avez préféré...</div>
         </div>
         <div class='vote' *ngIf="partie==2">
-            <div *ngIf="!auth.voteFait" style="text-align: center;">Veuillez voter</div>
+            <div *ngIf="!auth.voteFait" style="text-align: center;">Votez</div>
             <div *ngIf="!auth.voteFait" class="stands">
                 <div *ngFor="let stand of auth.stands">
                     <span (click)="select($event, stand)">{{stand}}</span>

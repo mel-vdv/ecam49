@@ -20,6 +20,10 @@ export class ConnexionComponent implements OnInit {
   //--------------------------------------------------
   ngOnInit(): void {
    // document.body.requestFullscreen();
+   window.document.addEventListener('keypress', (event)=>{
+if(event.key==='Enter') {
+     this.connexion();
+    }   });
   }
   //--------------------------------------------------
   clik=false;

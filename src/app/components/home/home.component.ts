@@ -1,5 +1,6 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { keyframes } from '@angular/animations';
 
 @Component({
   selector: 'app-home',
@@ -11,9 +12,16 @@ export class HomeComponent implements OnInit {
   constructor(
     private router : Router
   ) { }
+//------------------------------------------
+
+
+
+
+
 
   ngOnInit(): void {
- //   document.body.requestFullscreen();
+
+
   }
   nav(lieu:string){
  this.router.navigate(['/'+lieu+'']);
