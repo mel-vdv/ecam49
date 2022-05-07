@@ -29,7 +29,7 @@ export class InscriptionComponent implements OnInit {
       console.log('load');
     });
     this.inscri = false;
-    this.refus = false;
+    if (!this.refus) { this.refus = false; }
     this.page = 1;
     if (!this.lignes2) { this.lignes2 = 1; }
     if (!this.lignes3) { this.lignes3 = 1; }
@@ -43,7 +43,7 @@ export class InscriptionComponent implements OnInit {
 
   }
   //------------------------------------
-  nom!: string;
+  nom='';
   nbJoueurs!: number;
   joueurs: string[] = [];
   stands!: number[];
@@ -76,12 +76,19 @@ export class InscriptionComponent implements OnInit {
   enter() {
     if (!this.inscri) {
       if (this.page != 11) {
-        this.suivant(1);
+        if (this.refus) {
+          this.verifName();
+        }
+        else {
+          if(this.page==2 && (this.nom =='' || this.nom ==' ')){return;} else{this.suivant(1);}
+        }
       }
       else {
-        this.valider();
-      }
+          this.valider();
+        }
+      
     }
+
     else {
       this.jouer();
     }
@@ -110,7 +117,8 @@ export class InscriptionComponent implements OnInit {
       case 2:
         if (this.motEnCours.length > 10) {
           this.lignes2 = 2;
-        } this.nom = this.motEnCours.join('');
+        }this.nom = this.motEnCours.join('');
+
         break;
       case 3:
         if (this.motEnCours.length > 10) {
@@ -142,6 +150,8 @@ export class InscriptionComponent implements OnInit {
         if (this.motEnCours.length > 10) {
           this.lignes10 = 2;
         } this.nom4 = this.motEnCours.join(''); break;
+
+
       default: console.log('shit');
     }
   }
@@ -183,8 +193,10 @@ export class InscriptionComponent implements OnInit {
   }
   //-------------------------
   verifName() {
+    console.log('on verifie le name ', this.nom);
     this.crud.getEquipeByName(this.nom).subscribe(data => {
       if (data.length == 0 || !data) {
+        this.refus = false;
         this.inscrire();
       }
       else {
@@ -198,9 +210,9 @@ export class InscriptionComponent implements OnInit {
     });
   }
   //----------------------------
-  stand1: number[] = [6, 9, 11, 12, 28, 31, 33, 34, 35, 36, 42, 23, 29, 48, 49];
-  stand2: number[] = [4, 5, 7, 10, 14, 17, 18, 19, 20, 21, 37, 38, 45, 46];
-  stand3: number[] = [2, 13, 30, 39, 43, 47, 50, 25, 3];
+  stand1: number[] = [6, 9,  12, 28, 31, 33, 34, 35, 36, 42, 23, 29, 48, 49];
+  stand2: number[] = [4, 5, 7, 10,11, 14, 17, 18, 19, 20, 21, 37, 38,39, 45, 46];
+  stand3: number[] = [2, 13, 30, 43, 47, 50, 25, 3];
   stand4: number[] = [1, 8, 15, 16, 22, 26, 32, 44];
   inscrire() {
     this.stands = [];
@@ -211,28 +223,28 @@ export class InscriptionComponent implements OnInit {
     //  }
     // }
     switch (this.nbJoueurs) {
-      case 1: this.joueurs = [this.nom1!];
+      case 1: this.joueurs = [this.prenom1+" "+this.nom1!];
         while (this.stands.length < 9) {
           let random1 = Math.floor(Math.random() * (this.stand1.length - 1));
           this.stands.push(this.stand1[random1]);
           this.stand1.splice(random1, 1);
         }
         break;
-      case 2: this.joueurs = [this.nom1!, this.nom2!];
+      case 2: this.joueurs = [this.prenom1+' '+this.nom1!, this.prenom2+' '+this.nom2!];
         while (this.stands.length < 9) {
           let random2 = Math.floor(Math.random() * (this.stand2.length - 1));
           this.stands.push(this.stand2[random2]);
           this.stand2.splice(random2, 1);
         }
         break;
-      case 3: this.joueurs = [this.nom1!, this.nom2!, this.nom3!];
-        while (this.stands.length < 9) {
+      case 3: this.joueurs = [this.prenom1+' '+this.nom1!, this.prenom2+' '+ this.nom2!,this.prenom3+' '+ this.nom3!];
+        while (this.stands.length < 8) {
           let random3 = Math.floor(Math.random() * (this.stand3.length - 1));
           this.stands.push(this.stand3[random3]);
           this.stand3.splice(random3, 1);
         }
         break;
-      case 4: this.joueurs = [this.nom1!, this.nom2!, this.nom3!, this.nom4!];
+      case 4: this.joueurs = [this.prenom1+' '+this.nom1!, this.prenom2+' '+this.nom2!,this.prenom3+' '+ this.nom3!, this.prenom4+' '+this.nom4!];
         while (this.stands.length < 8) {
           let random4 = Math.floor(Math.random() * (this.stand4.length - 1));
           this.stands.push(this.stand4[random4]);

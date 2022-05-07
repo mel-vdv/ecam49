@@ -1,6 +1,6 @@
 <div class="container">
 
-<div class="logo-pi">
+<div *ngIf="velmdp" class="logo-pi">
     <img src="./../../../assets/pi-blanc.png" alt="pi">
 </div>
 
@@ -9,8 +9,8 @@
 </div>
 
 <div class="login">
-<div>Veuillez entrer le mot de passe :</div>    
-<input autocomplete="off" type="text" [(ngModel)]="mdp"><br>
+<div *ngIf="velmdp">Veuillez entrer le mot de passe :</div>    
+<input autocomplete="off" type="text" [(ngModel)]="mdp" (click)="place()"><br>
 <button (click)="login()">valider</button>
 </div>
 

@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
     }
     
     else{
-      this.message = 'Mot de passe erroné.'
+      this.message = 'Mot de passe erroné';
     }
   }
   //----------------------
@@ -41,7 +41,11 @@ if(event.key==='Enter'){
 }
 
 
-
+//----------------------------------
+velmdp=true;
+place(){
+this.velmdp= false;
+}
 
     
   

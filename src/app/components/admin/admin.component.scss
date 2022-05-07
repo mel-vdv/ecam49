@@ -2,7 +2,7 @@
     user-select: none;
     background: linear-gradient(180deg, #021013 , #074b57);
     width: 100vw; height:100vh;
-    position: relative; z-index: 3;
+    position: relative; z-index: 3; overflow: scroll;
 }
 .coche{
     height: 8vh;
@@ -15,6 +15,9 @@ table{
     width: 100vw;
     background-color: white;
     color:black;
+}
+tbody{
+   
 }
 .stands{
     width: 100vw;
@@ -46,7 +49,7 @@ th{
     color: red;
 }
 img[alt='joueur']{
-    height: 8vw;
+    width: 5vw;
 }
 .carre{
     height: 10px;

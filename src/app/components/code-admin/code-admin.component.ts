@@ -23,7 +23,7 @@ export class CodeAdminComponent implements OnInit {
      });
   }
   login(){
-    if(this.mdp.toLocaleLowerCase() ==='admin49'||this.mdp.toLocaleLowerCase() ==='admin49'+' '){
+    if(this.mdp.toLocaleLowerCase() ==='admin@pi2022'||this.mdp.toLocaleLowerCase() ==='admin@pi2022'+' '){
     this.router.navigate(['/admin']);
     }
     
@@ -31,7 +31,11 @@ export class CodeAdminComponent implements OnInit {
       this.message = 'Mot de passe erroné.'
     }
   }
-
+//------------------
+velmdp=true;
+place(){
+this.velmdp= false;
+}
 
 
 }
