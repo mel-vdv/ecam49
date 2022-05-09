@@ -210,9 +210,9 @@ export class InscriptionComponent implements OnInit {
     });
   }
   //----------------------------
-  stand1: number[] = [6, 9,  12, 28, 31, 33, 34, 35, 36, 42, 23, 29, 48, 49];
+  stand1: number[] = [6, 9,  12, 28, 31, 33, 35, 36, 42, 23, 29, 48, 49];
   stand2: number[] = [4, 5, 7, 10,11, 14, 17, 18, 19, 20, 21, 37, 38,39, 45, 46];
-  stand3: number[] = [2, 13, 30, 43, 47, 50, 25, 3];
+  stand3: number[] = [2, 13, 30,34, 43, 47, 50, 25, 3];
   stand4: number[] = [1, 8, 15, 16, 22, 26, 32, 44];
   inscrire() {
     this.stands = [];
@@ -238,7 +238,7 @@ export class InscriptionComponent implements OnInit {
         }
         break;
       case 3: this.joueurs = [this.prenom1+' '+this.nom1!, this.prenom2+' '+ this.nom2!,this.prenom3+' '+ this.nom3!];
-        while (this.stands.length < 8) {
+        while (this.stands.length < 9) {
           let random3 = Math.floor(Math.random() * (this.stand3.length - 1));
           this.stands.push(this.stand3[random3]);
           this.stand3.splice(random3, 1);
